@@ -1,0 +1,13 @@
+# Hostless infrastructure-as-code — aplicado automaticamente a cada push.
+# Docs: https://docs.hostless.cloud/app/hostlessfile
+build:
+  command: "npm run build"
+  system: auto
+  min_memory: 1024
+  max_memory: 2048
+pre_build_command: "npm ci"
+start_command: "node server/dist/index.js"
+health_check:
+  type: http
+  http_path: "/api/ping"
+  interval_in_seconds: 30
