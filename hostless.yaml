@@ -7,3 +7,7 @@ build:
   max_memory: 2048
 pre_build_command: "npm ci"
 start_command: "node server/dist/index.js"
+health_check:
+  type: http
+  http_path: "/api/ping"
+  interval_in_seconds: 30
